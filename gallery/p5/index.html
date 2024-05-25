@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>StarField_p5.js</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/addons/p5.sound.min.js"></script>
+    <script type="text/javascript" src="sketch.js"></script>
+    <script type="text/javascript" src="Star.js"></script>
+
+    <!-- Changes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Carousel Template · Bootstrap v5.0</title>
+    <!-- Include Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css">
+
+    <!-- Include Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+    
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+            }
+        }
+    </style>
+
+    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+  </head>
+  <body>
+    <!-- Generate the header section with a responsive navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Photographer's Name</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto"> <!-- Add ms-auto class to align links to the right -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#photo">Fotografía Profesional</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#bio">Bio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#grid">Proyectos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#video">Video</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+      <!-- Carrousel/Home Section-->
+      <section>
+        <div class="container fluid">
+          <div class="row">
+            <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="https://th.bing.com/th/id/R.ac617c2c2ee21856d0643c181306266e?rik=piNrXqcMIFaZrA&riu=http%3a%2f%2fhappytowander.com%2fwp-content%2fuploads%2f2016%2f03%2fHappy-to-Wander-Neuschwanstein-and-Fussen-0786.jpg&ehk=dpMl87otDw9F49iuth02LmcIb7dGE24%2fmn0DZJW1sP8%3d&risl=1&pid=ImgRaw&r=0" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-flex flex-column h-100 align-items-center justify-content-center bottom-0">
+                      <h2 class="bg-dark bg-opacity-50 py-2 px-4">First slide label</h2>
+                      <p class="bg-dark bg-opacity-50 py-2 px-4">Some representative placeholder content for the first
+                        slide.</p>
+                      <a href="#" class="btn btn-outline-light px-4 py-2 rounded-0">Learn More</a>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://codingyaar.com/wp-content/uploads/dark-flowers-2.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-flex flex-column h-100 align-items-center justify-content-center bottom-0 ">
+                      <h2 class="bg-dark bg-opacity-50 py-2 px-4">Second slide label</h2>
+                      <p class="bg-dark bg-opacity-50 py-2 px-4">Some representative placeholder content for the second
+                        slide.</p>
+                      <a href="#" class="btn btn-outline-light px-4 py-2 rounded-0">Learn More</a>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://codingyaar.com/wp-content/uploads/dark-flowers-3.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-flex flex-column h-100 align-items-center justify-content-center bottom-0">
+                      <h2 class="bg-dark bg-opacity-50 py-2 px-4">Third slide label</h2>
+                      <p class="bg-dark bg-opacity-50 py-2 px-4">Some representative placeholder content for the third
+                        slide.</p>
+                      <a href="#" class="btn btn-outline-light px-4 py-2 rounded-0">Learn More</a>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+      </section>
+      <div id="sketch-holder"></div>
+      </main>
+  </body>
+</html>
