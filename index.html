@@ -1,23 +1,10 @@
-<!-- 
-    Create a basic HTML5 template for a photographer's portfolio.
-    The page uses bootstrap and implements the following features:
-    - A navigation bar with the photographer's name and links to the different sections of the page.
-    - A header with a large background image and the photographer's name.
-    - A section with a grid of images.
-    - A section with a short biography.
-    - A section with a contact form.
-    - A footer with the photographer's name and social media links.
-    - Font awesome library for icons
--->
-
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
         <meta name="description" content="">
-        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-        <meta name="generator" content="Hugo 0.84.0">
+        <meta name="author" content="Jorge Raze & Omar Siniestro">
         <title>Photoness.Studio</title>
         <!-- Include Bootstrap 5 CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -40,12 +27,13 @@
                 font-size: 3.5rem;
               }
             }
+           
           </style>
     </head>
     <body>
         <!-- Generate the header section with a responsive navbar -->
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2 border-bottom border-body fixed-top" data-bs-theme="dark">
                 <div class="container">
                     <a class="navbar-brand" href="/"><img src="img/logo.png" alt=""></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -161,8 +149,8 @@
           <!-- Photo Section-->
           <section class="page-section" id="photo">
             <div class="container">
-              <div class="col-4 badge bg-warning text-wrap">
-                <h3 class="text-dark">Fotografía Profesional</h3>
+              <div class="col-4 badge rounded-pill bg-warning text-wrap">
+                <h2 class="text-dark">Fotografía Profesional</h2>
               </div>
               
               <br />
@@ -174,6 +162,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Corporativo</h5>
                       <p class="card-text">Muestra la esencia de su empresa con servicios de fotografía corporativa. Desde retratos ejecutivos hasta eventos clave, nuestras imágenes reflejan autenticidad y profesionalismo, construyendo una presencia visual fuerte y destacada en el ámbito empresarial</p>
+                      <button type="button" class="btn btn-warning">Ver más...</button>
                     </div>
                   </div>
                 </div>
@@ -183,6 +172,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Producto</h5>
                       <p class="card-text">Fotografía de producto personalizada según tus objetivos y neceisdades. Ideal para redes sociales, comercio electrónico, catálogos, publicidad y cualqueir propósito que tengas en mente.</p>
+                      <button type="button" class="btn btn-warning">Ver más...</button>
                     </div>
                   </div>
                 </div>
@@ -192,6 +182,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Retrato</h5>
                       <p class="card-text">Explora tu autenticidad con nuestra fotografía de retrato. Desde retratos individuales que revelan tu esencia, hasta sesiones con modelos y familiares que celebran conexiones, cada imagen cuenta una historia inolvidable.</p>
+                      <a type="button" class="btn btn-warning">Ver más...</a>
                     </div>
                   </div>
                 </div>
@@ -201,6 +192,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Gastronimía</h5>
                       <p class="card-text">Capturamos el atractivo de su menú con nuestra fotografía gatrónomica. Cada imagen es una invitación visual, resaltando la exquisitez de sus platos y generando un impacto irresistible.</p>
+                      <button type="button" class="btn btn-warning">Ver más...</button>
                     </div>
                   </div>
                 </div>
@@ -209,7 +201,8 @@
                     <img src="img/portfolio/evento.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Eventos</h5>
-                      <p class="card-text">Cada evento es una historia por contar. Nuestra fotografía de eventos captura la esencia y emoción, creando recuerdos visuales que trascienden el tiempo. Inmortalizamos momentos con estilo y pasión.<p>
+                      <p class="card-text">Cada evento es una historia por contar. Nuestra fotografía de eventos captura la esencia y emoción, creando recuerdos visuales que trascienden el tiempo. Inmortalizamos momentos con estilo y pasión.</p>
+                      <button type="button" class="btn btn-warning">Ver más...</button>
                     </div>
                   </div>
                 </div>
@@ -217,78 +210,12 @@
             </div>
           </section>
           <br />
-          <!-- Portfolio Section
-          <section class="page-section portfolio" id="portfolio">
-          <div class="container">
-             
-              <div class="col-4 badge bg-warning text-wrap">
-                <h3>Portfolio</h3>
-              </div>
-              
-              <div class="row justify-content-center">
 
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                          </div>
-                          <img class="img-fluid" src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" alt="..." />
-                      </div>
-                  </div>
-   
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                          </div>
-                          <img class="img-fluid" src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" alt="..." />
-                      </div>
-                  </div>
-
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                          </div>
-                          <img class="img-fluid" src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" alt="..." />
-                      </div>
-                  </div>
-
-                  <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                      <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                          </div>
-                          <img class="img-fluid" src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" alt="..." />
-                      </div>
-                  </div>
-
-                  <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                      <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                          </div>
-                          <img class="img-fluid" src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" alt="..." />
-                      </div>
-                  </div>
-
-                  <div class="col-md-6 col-lg-4">
-                      <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                          </div>
-                          <img class="img-fluid" src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" alt="..." />
-                      </div>
-                  </div>
-              </div>
-          </div>
-          </section>
-          -->  
           <section class="page-section" id="video">
             <div class="container">
               <div class="row">
-                <div class="col-4 badge bg-warning text-wrap">
-                  <h3 class="text-dark">Video</h3>
+                <div class="col-4 badge rounded-pill bg-warning text-wrap">
+                  <h2 class="text-dark rounded-pill">Video</h2>
                 </div>
               </div>
               <br />
@@ -302,17 +229,9 @@
           <!-- Bio Section-->
           <section class="page-section" id="bio">
               <div class="container">
-                <div class="col-4 badge bg-warning text-wrap">
-                  <h3 class="text-dark">Biografía</h3>
+                <div class="col-4 badge rounded-pill bg-warning text-wrap">
+                  <h2 class="text-dark rounded-pill">Biografía</h2>
                 </div>
-                  <!-- About Section Heading-->
-                  <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
-                  <!-- Icon Divider-->
-                  <div class="divider-custom divider-light">
-                      <div class="divider-custom-line"></div>
-                      <div class="divider-custom-line"></div>
-                  </div>
-                  <!-- About Section Content-->
                   <div class="row">
                       <div class="h-100 col-7 align-middle">
                         <br />
@@ -332,13 +251,26 @@
                       <div class="col-lg-4 ms-auto"><p class="lead"><img src="img/bio.jpg" alt="Omar" /></div>
                   </div>
               </div>
+              <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-12 mb-5 mb-lg-0 text-center">
+                        <a class="fs-1 social" href="#!"><i class="fab fa-fw fa-facebook text-dark"></i></a>
+                        <a class="fs-1 social" href="#!"><i class="fab fa-fw fa-instagram text-dark"></i></a>
+                        <a class="fs-1 social" href="#!"><i class="fab fa-fw fa-youtube text-dark"></i></a>
+                    </div>
+                    
+                </div>
+            </div>
           </section>      
           
           <!-- Contact Section-->
           <section class="page-section" id="contact">
           <div class="container">
-            <div class="col-4 badge bg-warning text-wrap">
-              <h3 class="text-dark">Contacto</h3>
+            <div class="col-4 badge rounded-pillbg-warning text-wrap">
+              <h2 class="text-dark rounded-pill">Contacto</h2>
               <br />
             </div>
          
@@ -407,22 +339,17 @@
                   </div>
               </div>
           </div>
+          <br>
+          <br>
           </section>
       <!-- Footer-->
-      <footer class="footer text-center">
-          <div class="container">
-              <div class="row">
-                  <!-- Footer Location-->
-                  
-                  <!-- Footer Social Icons-->
-                  <div class="col-lg-12 mb-5 mb-lg-0 text-center">
-                      <a class="fs-1 social" href="#!"><i class="fab fa-fw fa-facebook text-dark"></i></a>
-                      <a class="fs-1 social" href="#!"><i class="fab fa-fw fa-instagram text-dark"></i></a>
-                      <a class="fs-1 social" href="#!"><i class="fab fa-fw fa-youtube text-dark"></i></a>
-                  </div>
-                  
-              </div>
-          </div>
+      <footer class="footer text-center bg-dark">
+          <!-- Do something with this footer -->
+          <br>
+          <br>
+          <p class="text-light small mb-4 mb-lg-0">&copy; Photoness.Studio 2024. Todos los derechos reservados.</p>
+          <br>
+          <br>
       </footer>
         </main>
     </body>
