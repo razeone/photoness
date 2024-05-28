@@ -21,3 +21,8 @@ canvas {
 section {
   margin-top: 50px;
 }
+/* Modify the background color */
+.navbar-custom {
+  background-color: lightgreen;
+}
+
