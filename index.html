@@ -2,333 +2,261 @@
 <html lang="es">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
-        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Photoness Studio - Fotografía Profesional">
         <meta name="author" content="Jorge Raze & Omar Siniestro">
         <title>Photoness.Studio</title>
-        <!-- Include Bootstrap 5 CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Include Bootstrap 5 JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://kit.fontawesome.com/1ef05c9102.js" crossorigin="anonymous"></script>
-        <style>
-            .bd-placeholder-img {
-              font-size: 1.125rem;
-              text-anchor: middle;
-              -webkit-user-select: none;
-              -moz-user-select: none;
-              user-select: none;
-            }
-      
-            @media (min-width: 768px) {
-              .bd-placeholder-img-lg {
-                font-size: 3.5rem;
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+          tailwind.config = {
+            theme: {
+              extend: {
+                colors: {
+                  'brand-yellow': '#ffee00',
+                },
+                fontFamily: {
+                  sans: ['Montserrat', 'sans-serif'],
+                },
               }
             }
-           
-          </style>
-          <link rel="stylesheet" href="css/style.css">
+          }
+        </script>
+        <!-- Bootstrap 5 CSS (required for carousel component) -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap 5 JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+        <script src="https://kit.fontawesome.com/1ef05c9102.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/style.css">
     </head>
-    <body>
-        <!-- Generate the header section with a responsive navbar -->
-        <header>
-            <nav class="navbar navbar-expand-lg mb-2 border-bottom border-body bg-black ">
-                <div class="container">
-                    <a class="navbar-brand" href="/"><img src="img/logo.png" alt=""></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+    <body class="font-sans bg-white text-gray-900">
+
+        <!-- Navbar -->
+        <header class="sticky top-0 z-50 bg-black shadow-lg">
+            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <a href="/" class="flex-shrink-0">
+                        <img src="img/logo.png" alt="Photoness.Studio" class="h-10 w-auto">
+                    </a>
+                    <!-- Desktop menu -->
+                    <ul class="hidden lg:flex items-center gap-6 text-sm font-medium tracking-wide">
+                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#">HOME</a></li>
+                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#photo">FOTOGRAFÍA</a></li>
+                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="/gallery/index.html">GALERÍA</a></li>
+                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#video">VIDEO</a></li>
+                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#bio">BIO</a></li>
+                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#contact">CONTACTO</a></li>
+                    </ul>
+                    <!-- Mobile hamburger (Bootstrap collapse) -->
+                    <button class="lg:hidden text-white p-2 rounded focus:outline-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <svg width="24" height="24" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto"> <!-- Add ms-auto class to align links to the right -->
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="#">HOME</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="#photo">FOTOGRAFÍA PROFESIONAL</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link text-light" href="/gallery/index.html">GALERÍA</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link text-light" href="#video">VIDEO</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="#bio">BIO</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="#contact">CONTACTO</a>
-                            </li>
-                        </ul>
-                    </div>
+                </div>
+                <!-- Mobile menu (collapsed) -->
+                <div class="collapse lg:hidden" id="mobileMenu">
+                    <ul class="flex flex-col gap-1 pb-4 text-sm font-medium tracking-wide">
+                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#">HOME</a></li>
+                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#photo">FOTOGRAFÍA PROFESIONAL</a></li>
+                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="/gallery/index.html">GALERÍA</a></li>
+                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#video">VIDEO</a></li>
+                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#bio">BIO</a></li>
+                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#contact">CONTACTO</a></li>
+                    </ul>
                 </div>
             </nav>
         </header>
+
         <main>
-          <!-- Carrousel/Home Section-->
-          <section>
-            <br>
-            <div class="container fluid">
-              <div class="row">
-                <div id="carouselExampleCaptions" class="carousel slide">
+            <!-- Hero / Carousel Section -->
+            <section>
+                <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
                     </div>
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="img/slider/1.jpg" class="d-block w-100" alt="...">
-                        
-                      </div>
-                      <div class="carousel-item">
-                        <img src="img/slider/2.jpg" class="d-block w-100" alt="...">
-                        
-                      </div>
-                      <div class="carousel-item">
-                        <img src="img/slider/3.jpg" class="d-block w-100" alt="...">
-                        
-                      </div>
-                      <div class="carousel-item">
-                        <img src="img/slider/4.jpg" class="d-block w-100" alt="...">
-                        
-                      </div>
-                      <div class="carousel-item">
-                        <img src="img/slider/5.jpg" class="d-block w-100" alt="...">
-                        
-                      </div>
-                      <div class="carousel-item">
-                        <img src="img/slider/6.jpg" class="d-block w-100" alt="...">
-                        
-                      </div>
+                        <div class="carousel-item active">
+                            <img src="img/slider/1.jpg" class="d-block w-100 hero-slide" alt="Slide 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/slider/2.jpg" class="d-block w-100 hero-slide" alt="Slide 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/slider/3.jpg" class="d-block w-100 hero-slide" alt="Slide 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/slider/4.jpg" class="d-block w-100 hero-slide" alt="Slide 4">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/slider/5.jpg" class="d-block w-100 hero-slide" alt="Slide 5">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/slider/6.jpg" class="d-block w-100 hero-slide" alt="Slide 6">
+                        </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
                     </button>
-                  </div>
                 </div>
-          </section>
-          <br />
-          <!-- Photo Section-->
-          <section class="page-section" id="photo">
-            <br />
-            <br />
-            <br />
-            <div class="container">
-              <div class="col-4 badge rounded-pill text-wrap bg-yellow-200">
-                <h2 class="text-dark">Fotografía Profesional</h2>
-              </div>
-              <br />
-              <br />
-              <br />
-              <div class="row">
-                <div class="col">
-                  <div class="card" style="width: 14rem;">
-                    <img src="img/portfolio/corp.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Corporativo</h5>
-                      <p class="card-text">Muestra la esencia de su empresa con servicios de fotografía corporativa. Desde retratos ejecutivos hasta eventos clave, nuestras imágenes reflejan autenticidad y profesionalismo, construyendo una presencia visual fuerte y destacada en el ámbito empresarial</p>
-                      <a type="button" href="gallery/corp/index.html" class="btn btn-dark">Ver más...</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card" style="width: 14rem;">
-                    <img src="img/portfolio/producto.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Producto</h5>
-                      <p class="card-text">Fotografía de producto personalizada según tus objetivos y neceisdades. Ideal para redes sociales, comercio electrónico, catálogos, publicidad y cualqueir propósito que tengas en mente.</p>
-                      <a type="button" href="gallery/product/index.html" class="btn btn-dark">Ver más...</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card" style="width: 14rem;">
-                    <img src="img/portfolio/retrato.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Retrato</h5>
-                      <p class="card-text">Explora tu autenticidad con nuestra fotografía de retrato. Desde retratos individuales que revelan tu esencia, hasta sesiones con modelos y familiares que celebran conexiones, cada imagen cuenta una historia inolvidable.</p>
-                      <a type="button" href="gallery/portrait/index.html" class="btn btn-dark">Ver más...</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card" style="width: 14rem;">
-                    <img src="img/portfolio/gastro.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Gastronomía</h5>
-                      <p class="card-text">Capturamos el atractivo de su menú con nuestra fotografía gastrónomica. Cada imagen es una invitación visual, resaltando la exquisitez de sus platos y generando un impacto irresistible.</p>
-                      <a type="button" href="gallery/gastro/index.html" class="btn btn-dark">Ver más...</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card" style="width: 14rem;">
-                    <img src="img/portfolio/evento.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Eventos</h5>
-                      <p class="card-text">Cada evento es una historia por contar. Nuestra fotografía de eventos captura la esencia y emoción, creando recuerdos visuales que trascienden el tiempo. Inmortalizamos momentos con estilo y pasión.</p>
-                      <a type="button" href="gallery/event/index.html" class="btn btn-dark">Ver más...</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <br />
-          <br />
-          <br />
- 
-
-          <section class="page-section" id="video">
-            <div class="container">
-              <div class="row">
-                <div class="col-4 badge rounded-pill  text-wrap">
-                  <h2 class="text-dark rounded-pill">Video</h2>
-                </div>
-              </div>
-              <br />
-              <br />
-              <br />
-                  <div class="video">
-                    <iframe width="100%" height="600" src="https://www.youtube.com/embed/OkwxdjAMcpw?si=vJDyd-jrcTZMReJh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  
-                  </div>
-              <br />
             </section>
-          <!-- Bio Section-->
-          <section class="page-section" id="bio">
-            <br />
-              <br />
 
-              <div class="container">
-                <div class="col-4 badge rounded-pill  text-wrap">
-                  <h2 class="text-dark rounded-pill">Biografía</h2>
-                </div>
-                  <div class="row">
-                      <div class="h-100 col-7 align-middle">
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <p class="lead">Soy Omar, apasionado creador audiovisual con más de 10 años de experiencia, cuento 
-                        con una formación académica en Diseño y Comunicación Visual, fusiono mi amor por el 
-                        arte y la fotografía. </p>
-                        <br />
-                        <p class="lead">Mi mente creativa captura momentos únicos, dando vida a narrativas visuales.</p>  
-                        <br />
-                        <p class="lead">Un talento que transforma ideas en imágenes impactantes</p>
-                        <img src="img/logo_bio.png" alt="">
-                      </div>
-                      <div class="col-lg-4 ms-auto"><p class="lead"><img src="img/bio.jpg" alt="Omar" /></div>
-                  </div>
-              </div>
-              <div class="container">
-                <div class="row">
-                    <!-- Footer Location-->
-                    
-                    <!-- Footer Social Icons-->
-                    <div class="col-lg-12 mb-5 mb-lg-0 text-center">
-                        <a class="fs-1 social" href="https://www.facebook.com/share/F7vUKvLTEj8U27vC/?mibextid=qi2Omg"><i class="fab fa-fw fa-facebook text-dark"></i></a>
-                        <a class="fs-1 social" href="https://www.instagram.com/photoness.studio?igsh=MXc1NTh1M2hhMzNxdQ=="><i class="fab fa-fw fa-instagram text-dark"></i></a>
-                        <a class="fs-1 social" href="https://youtube.com/@photoness.studio?si=GqbZ7hPFYHGqzjNi"><i class="fab fa-fw fa-youtube text-dark"></i></a>
+            <!-- Photography Section -->
+            <section id="photo" class="py-16 sm:py-20 px-4">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-10">
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Fotografía Profesional</h2>
+                        <div class="mt-2 w-16 h-1 bg-brand-yellow rounded-full"></div>
                     </div>
-                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                        <!-- Card: Corporativo -->
+                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                            <img src="img/portfolio/corp.jpg" class="w-full aspect-[4/3] object-cover" alt="Corporativo">
+                            <div class="flex flex-col flex-1 p-4 gap-3">
+                                <h5 class="font-semibold text-gray-900">Corporativo</h5>
+                                <p class="text-sm text-gray-600 flex-1">Muestra la esencia de su empresa con servicios de fotografía corporativa. Desde retratos ejecutivos hasta eventos clave, nuestras imágenes reflejan autenticidad y profesionalismo.</p>
+                                <a href="gallery/corp/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200">Ver más</a>
+                            </div>
+                        </div>
+                        <!-- Card: Producto -->
+                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                            <img src="img/portfolio/producto.jpg" class="w-full aspect-[4/3] object-cover" alt="Producto">
+                            <div class="flex flex-col flex-1 p-4 gap-3">
+                                <h5 class="font-semibold text-gray-900">Producto</h5>
+                                <p class="text-sm text-gray-600 flex-1">Fotografía de producto personalizada según tus objetivos y necesidades. Ideal para redes sociales, comercio electrónico, catálogos y publicidad.</p>
+                                <a href="gallery/product/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200">Ver más</a>
+                            </div>
+                        </div>
+                        <!-- Card: Retrato -->
+                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                            <img src="img/portfolio/retrato.jpg" class="w-full aspect-[4/3] object-cover" alt="Retrato">
+                            <div class="flex flex-col flex-1 p-4 gap-3">
+                                <h5 class="font-semibold text-gray-900">Retrato</h5>
+                                <p class="text-sm text-gray-600 flex-1">Explora tu autenticidad con nuestra fotografía de retrato. Desde retratos individuales hasta sesiones con modelos y familiares, cada imagen cuenta una historia inolvidable.</p>
+                                <a href="gallery/portrait/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200">Ver más</a>
+                            </div>
+                        </div>
+                        <!-- Card: Gastronomía -->
+                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                            <img src="img/portfolio/gastro.jpg" class="w-full aspect-[4/3] object-cover" alt="Gastronomía">
+                            <div class="flex flex-col flex-1 p-4 gap-3">
+                                <h5 class="font-semibold text-gray-900">Gastronomía</h5>
+                                <p class="text-sm text-gray-600 flex-1">Capturamos el atractivo de su menú con nuestra fotografía gastronómica. Cada imagen es una invitación visual que resalta la exquisitez de sus platos.</p>
+                                <a href="gallery/gastro/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200">Ver más</a>
+                            </div>
+                        </div>
+                        <!-- Card: Eventos -->
+                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                            <img src="img/portfolio/evento.jpg" class="w-full aspect-[4/3] object-cover" alt="Eventos">
+                            <div class="flex flex-col flex-1 p-4 gap-3">
+                                <h5 class="font-semibold text-gray-900">Eventos</h5>
+                                <p class="text-sm text-gray-600 flex-1">Cada evento es una historia por contar. Nuestra fotografía captura la esencia y emoción, creando recuerdos visuales que trascienden el tiempo.</p>
+                                <a href="gallery/event/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-          </section>      
-          
-          <!-- Contact Section-->
-          <section class="page-section" id="contact">
-            <br>
-            <br><br>
-          <div class="container">
-            <div class="col-4 badge rounded-pill  text-wrap">
-              <h2 class="text-dark rounded-pill">Contacto</h2>
-            </div>
-            <br>
-            <br><br>
-         
-              <!-- Contact Section Form-->
-              <div class="row justify-content">
-                  <div class="col-lg-2 col-xl-5">
-                      <!-- * * * * * * * * * * * * * * *-->
-                      <!-- * * SB Forms Contact Form * *-->
-                      <!-- * * * * * * * * * * * * * * *-->
-                      <!-- This form is pre-integrated with SB Forms.-->
-                      <!-- To make this form functional, sign up at-->
-                      <!-- https://startbootstrap.com/solution/contact-forms-->
-                      <!-- to get an API token!-->
-                      <br />
-                      <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                          <!-- Name input-->
-                          <div class="form-floating mb-3">
-                              <input class="form-control" id="name" type="text" placeholder="Ingrese su nombre..." data-sb-validations="required" />
-                              <label for="name">Nombre *</label>
-                              <div class="invalid-feedback" data-sb-feedback="name:required">El nombre es requerido.</div>
-                          </div>
-                          <!-- Email address input-->
-                          <div class="form-floating mb-3">
-                              <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                              <label for="email">Email *</label>
-                              <div class="invalid-feedback" data-sb-feedback="email:required">El email es requerido.</div>
-                              <div class="invalid-feedback" data-sb-feedback="email:email">Email no valido.</div>
-                          </div>
-                          <!-- Message input-->
-                          <div class="form-floating mb-3">
-                              <textarea class="form-control" id="message" type="text" placeholder="Cuéntame tu idea..." style="height: 10rem" data-sb-validations="required"></textarea>
-                              <label for="message">Cuéntame tu idea *</label>
-                              <div class="invalid-feedback" data-sb-feedback="message:required">El mensaje es requerido.</div>
-                          </div>
-                          <!-- Submit success message-->
-                          <!---->
-                          <!-- This is what your users will see when the form-->
-                          <!-- has successfully submitted-->
-                          <div class="d-none" id="submitSuccessMessage">
-                              <div class="text-center mb-3">
-                                  <div class="fw-bolder">Form submission successful!</div>
-                                  To activate this form, sign up at
-                                  <br />
-                                  <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                              </div>
-                          </div>
-                          <!-- Submit error message-->
-                          <!---->
-                          <!-- This is what your users will see when there is-->
-                          <!-- an error submitting the form-->
-                          <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                          <!-- Submit Button-->
-                          <button class="btn btn-dark btn-xl" id="submitButton" type="submit">Enviar</button>
-                      </form>
-                  </div>
-                  <div class="col-lg-6 d-flex justify-content-center align-items-center">
-                    <br />
-                    <br />
-                    <br />
-                    <img src="img/logo_contact.png" alt="">
-                  </div>
-              </div>
-          </div>
-          <br>
-          <br>
-          </section>
-      <!-- Footer-->
-      <footer class="footer text-center bg-black">
-          <!-- Do something with this footer -->
-          <br>
-          <br>
-          <p class="text-light small mb-4 mb-lg-0">&copy; Photoness.Studio 2024. Todos los derechos reservados.</p>
-          <br>
-          <br>
-      </footer>
+            </section>
+
+            <!-- Video Section -->
+            <section id="video" class="py-16 sm:py-20 px-4 bg-gray-50">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-10">
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Video</h2>
+                        <div class="mt-2 w-16 h-1 bg-brand-yellow rounded-full"></div>
+                    </div>
+                    <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-lg">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/OkwxdjAMcpw?si=vJDyd-jrcTZMReJh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bio Section -->
+            <section id="bio" class="py-16 sm:py-20 px-4">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-10">
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Biografía</h2>
+                        <div class="mt-2 w-16 h-1 bg-brand-yellow rounded-full"></div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-10 items-center">
+                        <div class="flex-1 space-y-5">
+                            <p class="text-base sm:text-lg text-gray-700 leading-relaxed">Soy Omar, apasionado creador audiovisual con más de 10 años de experiencia, cuento con una formación académica en Diseño y Comunicación Visual, fusiono mi amor por el arte y la fotografía.</p>
+                            <p class="text-base sm:text-lg text-gray-700 leading-relaxed">Mi mente creativa captura momentos únicos, dando vida a narrativas visuales.</p>
+                            <p class="text-base sm:text-lg text-gray-700 leading-relaxed">Un talento que transforma ideas en imágenes impactantes.</p>
+                            <img src="img/logo_bio.png" alt="Photoness Studio" class="h-12 mt-4">
+                        </div>
+                        <div class="flex-1 flex justify-center">
+                            <img src="img/bio.jpg" alt="Omar" class="rounded-2xl shadow-xl max-w-xs sm:max-w-sm w-full object-cover">
+                        </div>
+                    </div>
+                    <!-- Social Icons -->
+                    <div class="flex justify-center gap-6 mt-12 text-4xl">
+                        <a class="text-gray-800 hover:text-brand-yellow transition-colors" href="https://www.facebook.com/share/F7vUKvLTEj8U27vC/?mibextid=qi2Omg" aria-label="Facebook"><i class="fab fa-fw fa-facebook"></i></a>
+                        <a class="text-gray-800 hover:text-brand-yellow transition-colors" href="https://www.instagram.com/photoness.studio?igsh=MXc1NTh1M2hhMzNxdQ==" aria-label="Instagram"><i class="fab fa-fw fa-instagram"></i></a>
+                        <a class="text-gray-800 hover:text-brand-yellow transition-colors" href="https://youtube.com/@photoness.studio?si=GqbZ7hPFYHGqzjNi" aria-label="YouTube"><i class="fab fa-fw fa-youtube"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="py-16 sm:py-20 px-4 bg-gray-50">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-10">
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Contacto</h2>
+                        <div class="mt-2 w-16 h-1 bg-brand-yellow rounded-full"></div>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-10 items-center">
+                        <div class="w-full md:w-1/2">
+                            <!-- SB Forms Contact Form -->
+                            <form id="contactForm" data-sb-form-api-token="API_TOKEN" class="space-y-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre *</label>
+                                    <input class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition" id="name" type="text" placeholder="Ingrese su nombre..." data-sb-validations="required">
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">El nombre es requerido.</div>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                                    <input class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition" id="email" type="email" placeholder="nombre@ejemplo.com" data-sb-validations="required,email">
+                                    <div class="invalid-feedback" data-sb-feedback="email:required">El email es requerido.</div>
+                                    <div class="invalid-feedback" data-sb-feedback="email:email">Email no válido.</div>
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Cuéntame tu idea *</label>
+                                    <textarea class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition resize-none" id="message" placeholder="Cuéntame tu idea..." rows="6" data-sb-validations="required"></textarea>
+                                    <div class="invalid-feedback" data-sb-feedback="message:required">El mensaje es requerido.</div>
+                                </div>
+                                <div class="hidden" id="submitSuccessMessage">
+                                    <div class="text-center p-4 bg-green-50 rounded-xl text-green-700 text-sm">
+                                        <p class="font-semibold">¡Mensaje enviado con éxito!</p>
+                                        <p>Para activar este formulario, regístrate en <a href="https://startbootstrap.com/solution/contact-forms" class="underline">SB Forms</a>.</p>
+                                    </div>
+                                </div>
+                                <div class="hidden" id="submitErrorMessage">
+                                    <div class="text-center p-4 bg-red-50 rounded-xl text-red-700 text-sm">Error al enviar el mensaje.</div>
+                                </div>
+                                <button class="w-full sm:w-auto bg-black text-white font-medium px-8 py-3 rounded-xl hover:bg-brand-yellow hover:text-black transition-colors duration-200" id="submitButton" type="submit">Enviar</button>
+                            </form>
+                        </div>
+                        <div class="w-full md:w-1/2 flex justify-center">
+                            <img src="img/logo_contact.png" alt="Photoness Studio" class="max-w-xs w-full">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="bg-black text-white text-center py-8 px-4">
+                <p class="text-sm text-gray-400">&copy; Photoness.Studio 2024. Todos los derechos reservados.</p>
+            </footer>
         </main>
     </body>
