@@ -35,12 +35,12 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="mb-10">
+      <div class="mb-10 reveal">
         <h1 class="text-3xl sm:text-4xl font-bold">Retrato</h1>
-        <div class="mt-2 w-16 h-1 bg-brand-yellow rounded-full"></div>
+        <div class="mt-2 h-1 bg-brand-yellow rounded-full anim-underline"></div>
       </div>
 
-      <div id="ngy2p" data-nanogallery2='{
+      <div id="ngy2p" class="reveal reveal-delay-1" data-nanogallery2='{
           "itemsBaseURL": "img/",
           "thumbnailWidth": "auto",
           "thumbnailHeight": "220",
@@ -83,6 +83,9 @@
     <footer class="bg-black border-t border-gray-800 text-center py-6 mt-12">
       <p class="text-sm text-gray-500">&copy; Photoness.Studio 2024. Todos los derechos reservados.</p>
     </footer>
+
+    <div id="page-overlay"></div>
+    <script src="../../js/animations.js"></script>
 
   </body>
 </html>

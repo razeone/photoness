@@ -39,7 +39,7 @@
                         <img src="img/logo.png" alt="Photoness.Studio" class="h-10 w-auto">
                     </a>
                     <!-- Desktop menu -->
-                    <ul class="hidden lg:flex items-center gap-6 text-sm font-medium tracking-wide">
+                    <ul id="nav-desktop" class="hidden lg:flex items-center gap-6 text-sm font-medium tracking-wide">
                         <li><a class="text-white hover:text-brand-yellow transition-colors" href="#">HOME</a></li>
                         <li><a class="text-white hover:text-brand-yellow transition-colors" href="#photo">FOTOGRAFÍA</a></li>
                         <li><a class="text-white hover:text-brand-yellow transition-colors" href="/gallery/index.html">GALERÍA</a></li>
@@ -70,7 +70,7 @@
 
         <main>
             <!-- Hero / Carousel Section -->
-            <section>
+            <section class="relative">
                 <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -109,18 +109,27 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
+                <!-- Hero text overlay -->
+                <div class="absolute inset-0 flex flex-col justify-end items-start text-white pointer-events-none z-10 px-6 sm:px-14 pb-14 sm:pb-24">
+                    <h1 class="hero-title text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight">
+                        Capturamos<br>tu Historia
+                    </h1>
+                    <p class="hero-subtitle text-xs sm:text-base mt-4 font-medium text-brand-yellow">
+                        Fotografía Profesional
+                    </p>
+                </div>
             </section>
 
             <!-- Photography Section -->
             <section id="photo" class="py-16 sm:py-20 px-4">
                 <div class="max-w-7xl mx-auto">
-                    <div class="mb-10">
+                    <div class="mb-10 reveal">
                         <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Fotografía Profesional</h2>
-                        <div class="mt-2 w-16 h-1 bg-brand-yellow rounded-full"></div>
+                        <div class="mt-2 h-1 bg-brand-yellow rounded-full anim-underline"></div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
                         <!-- Card: Corporativo -->
-                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal reveal-delay-1">
                             <img src="img/portfolio/corp.jpg" class="w-full aspect-[4/3] object-cover" alt="Corporativo">
                             <div class="flex flex-col flex-1 p-4 gap-3">
                                 <h5 class="font-semibold text-gray-900">Corporativo</h5>
@@ -129,7 +138,7 @@
                             </div>
                         </div>
                         <!-- Card: Producto -->
-                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal reveal-delay-2">
                             <img src="img/portfolio/producto.jpg" class="w-full aspect-[4/3] object-cover" alt="Producto">
                             <div class="flex flex-col flex-1 p-4 gap-3">
                                 <h5 class="font-semibold text-gray-900">Producto</h5>
@@ -138,7 +147,7 @@
                             </div>
                         </div>
                         <!-- Card: Retrato -->
-                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal reveal-delay-3">
                             <img src="img/portfolio/retrato.jpg" class="w-full aspect-[4/3] object-cover" alt="Retrato">
                             <div class="flex flex-col flex-1 p-4 gap-3">
                                 <h5 class="font-semibold text-gray-900">Retrato</h5>
@@ -147,7 +156,7 @@
                             </div>
                         </div>
                         <!-- Card: Gastronomía -->
-                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal reveal-delay-4">
                             <img src="img/portfolio/gastro.jpg" class="w-full aspect-[4/3] object-cover" alt="Gastronomía">
                             <div class="flex flex-col flex-1 p-4 gap-3">
                                 <h5 class="font-semibold text-gray-900">Gastronomía</h5>
@@ -156,7 +165,7 @@
                             </div>
                         </div>
                         <!-- Card: Eventos -->
-                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal reveal-delay-5">
                             <img src="img/portfolio/evento.jpg" class="w-full aspect-[4/3] object-cover" alt="Eventos">
                             <div class="flex flex-col flex-1 p-4 gap-3">
                                 <h5 class="font-semibold text-gray-900">Eventos</h5>
@@ -171,11 +180,11 @@
             <!-- Video Section -->
             <section id="video" class="py-16 sm:py-20 px-4 bg-gray-50">
                 <div class="max-w-7xl mx-auto">
-                    <div class="mb-10">
+                    <div class="mb-10 reveal">
                         <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Video</h2>
-                        <div class="mt-2 w-16 h-1 bg-brand-yellow rounded-full"></div>
+                        <div class="mt-2 h-1 bg-brand-yellow rounded-full anim-underline"></div>
                     </div>
-                    <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-lg">
+                    <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-lg reveal">
                         <iframe class="w-full h-full" src="https://www.youtube.com/embed/OkwxdjAMcpw?si=vJDyd-jrcTZMReJh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
@@ -184,26 +193,26 @@
             <!-- Bio Section -->
             <section id="bio" class="py-16 sm:py-20 px-4">
                 <div class="max-w-7xl mx-auto">
-                    <div class="mb-10">
+                    <div class="mb-10 reveal">
                         <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Biografía</h2>
-                        <div class="mt-2 w-16 h-1 bg-brand-yellow rounded-full"></div>
+                        <div class="mt-2 h-1 bg-brand-yellow rounded-full anim-underline"></div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-10 items-center">
-                        <div class="flex-1 space-y-5">
+                        <div class="flex-1 space-y-5 reveal-left">
                             <p class="text-base sm:text-lg text-gray-700 leading-relaxed">Soy Omar, apasionado creador audiovisual con más de 10 años de experiencia, cuento con una formación académica en Diseño y Comunicación Visual, fusiono mi amor por el arte y la fotografía.</p>
                             <p class="text-base sm:text-lg text-gray-700 leading-relaxed">Mi mente creativa captura momentos únicos, dando vida a narrativas visuales.</p>
                             <p class="text-base sm:text-lg text-gray-700 leading-relaxed">Un talento que transforma ideas en imágenes impactantes.</p>
                             <img src="img/logo_bio.png" alt="Photoness Studio" class="h-12 mt-4">
                         </div>
-                        <div class="flex-1 flex justify-center">
+                        <div class="flex-1 flex justify-center reveal-right">
                             <img src="img/bio.jpg" alt="Omar" class="rounded-2xl shadow-xl max-w-xs sm:max-w-sm w-full object-cover">
                         </div>
                     </div>
                     <!-- Social Icons -->
-                    <div class="flex justify-center gap-6 mt-12 text-4xl">
-                        <a class="text-gray-800 hover:text-brand-yellow transition-colors" href="https://www.facebook.com/share/F7vUKvLTEj8U27vC/?mibextid=qi2Omg" aria-label="Facebook"><i class="fab fa-fw fa-facebook"></i></a>
-                        <a class="text-gray-800 hover:text-brand-yellow transition-colors" href="https://www.instagram.com/photoness.studio?igsh=MXc1NTh1M2hhMzNxdQ==" aria-label="Instagram"><i class="fab fa-fw fa-instagram"></i></a>
-                        <a class="text-gray-800 hover:text-brand-yellow transition-colors" href="https://youtube.com/@photoness.studio?si=GqbZ7hPFYHGqzjNi" aria-label="YouTube"><i class="fab fa-fw fa-youtube"></i></a>
+                    <div class="flex justify-center gap-6 mt-12 text-4xl reveal">
+                        <a class="social-icon text-gray-800 hover:text-brand-yellow" href="https://www.facebook.com/share/F7vUKvLTEj8U27vC/?mibextid=qi2Omg" aria-label="Facebook"><i class="fab fa-fw fa-facebook"></i></a>
+                        <a class="social-icon text-gray-800 hover:text-brand-yellow" href="https://www.instagram.com/photoness.studio?igsh=MXc1NTh1M2hhMzNxdQ==" aria-label="Instagram"><i class="fab fa-fw fa-instagram"></i></a>
+                        <a class="social-icon text-gray-800 hover:text-brand-yellow" href="https://youtube.com/@photoness.studio?si=GqbZ7hPFYHGqzjNi" aria-label="YouTube"><i class="fab fa-fw fa-youtube"></i></a>
                     </div>
                 </div>
             </section>
@@ -211,12 +220,12 @@
             <!-- Contact Section -->
             <section id="contact" class="py-16 sm:py-20 px-4 bg-gray-50">
                 <div class="max-w-7xl mx-auto">
-                    <div class="mb-10">
+                    <div class="mb-10 reveal">
                         <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Contacto</h2>
-                        <div class="mt-2 w-16 h-1 bg-brand-yellow rounded-full"></div>
+                        <div class="mt-2 h-1 bg-brand-yellow rounded-full anim-underline"></div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-10 items-center">
-                        <div class="w-full md:w-1/2">
+                        <div class="w-full md:w-1/2 reveal-left">
                             <!-- SB Forms Contact Form -->
                             <form id="contactForm" data-sb-form-api-token="API_TOKEN" class="space-y-4">
                                 <div>
@@ -247,7 +256,7 @@
                                 <button class="w-full sm:w-auto bg-black text-white font-medium px-8 py-3 rounded-xl hover:bg-brand-yellow hover:text-black transition-colors duration-200" id="submitButton" type="submit">Enviar</button>
                             </form>
                         </div>
-                        <div class="w-full md:w-1/2 flex justify-center">
+                        <div class="w-full md:w-1/2 flex justify-center reveal-right">
                             <img src="img/logo_contact.png" alt="Photoness Studio" class="max-w-xs w-full">
                         </div>
                     </div>
@@ -255,8 +264,13 @@
             </section>
 
             <!-- Footer -->
-            <footer class="bg-black text-white text-center py-8 px-4">
+            <footer class="bg-black text-white text-center py-8 px-4 reveal">
                 <p class="text-sm text-gray-400">&copy; Photoness.Studio 2024. Todos los derechos reservados.</p>
             </footer>
         </main>
+
+        <!-- Page transition overlay -->
+        <div id="page-overlay"></div>
+        <!-- Shared animation script -->
+        <script src="/js/animations.js"></script>
     </body>
