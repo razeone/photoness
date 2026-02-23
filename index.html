@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-i18n-title="page.title.home">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,12 +40,20 @@
                     </a>
                     <!-- Desktop menu -->
                     <ul id="nav-desktop" class="hidden lg:flex items-center gap-6 text-sm font-medium tracking-wide">
-                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#">HOME</a></li>
-                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#photo">FOTOGRAFÍA</a></li>
-                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="/gallery/index.html">GALERÍA</a></li>
-                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#video">VIDEO</a></li>
-                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#bio">BIO</a></li>
-                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#contact">CONTACTO</a></li>
+                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#" data-i18n="nav.home">HOME</a></li>
+                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#photo" data-i18n="nav.photography">FOTOGRAFÍA</a></li>
+                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="/gallery/index.html" data-i18n="nav.gallery">GALERÍA</a></li>
+                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#video" data-i18n="nav.video">VIDEO</a></li>
+                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#bio" data-i18n="nav.bio">BIO</a></li>
+                        <li><a class="text-white hover:text-brand-yellow transition-colors" href="#contact" data-i18n="nav.contact">CONTACTO</a></li>
+                        <li>
+                            <div class="lang-switcher">
+                                <button data-lang="es">ES</button>
+                                <button data-lang="en">EN</button>
+                                <button data-lang="de">DE</button>
+                                <button data-lang="fr">FR</button>
+                            </div>
+                        </li>
                     </ul>
                     <!-- Mobile hamburger (Bootstrap collapse) -->
                     <button class="lg:hidden text-white p-2 rounded focus:outline-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,13 +65,19 @@
                 <!-- Mobile menu (collapsed) -->
                 <div class="collapse lg:hidden" id="mobileMenu">
                     <ul class="flex flex-col gap-1 pb-4 text-sm font-medium tracking-wide">
-                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#">HOME</a></li>
-                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#photo">FOTOGRAFÍA PROFESIONAL</a></li>
-                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="/gallery/index.html">GALERÍA</a></li>
-                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#video">VIDEO</a></li>
-                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#bio">BIO</a></li>
-                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#contact">CONTACTO</a></li>
+                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#" data-i18n="nav.home">HOME</a></li>
+                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#photo" data-i18n="nav.photography_mobile">FOTOGRAFÍA PROFESIONAL</a></li>
+                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="/gallery/index.html" data-i18n="nav.gallery">GALERÍA</a></li>
+                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#video" data-i18n="nav.video">VIDEO</a></li>
+                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#bio" data-i18n="nav.bio">BIO</a></li>
+                        <li><a class="block py-2 px-3 text-white hover:text-brand-yellow transition-colors" href="#contact" data-i18n="nav.contact">CONTACTO</a></li>
                     </ul>
+                    <div class="lang-switcher-mobile">
+                        <button data-lang="es">ES</button>
+                        <button data-lang="en">EN</button>
+                        <button data-lang="de">DE</button>
+                        <button data-lang="fr">FR</button>
+                    </div>
                 </div>
             </nav>
         </header>
@@ -111,10 +125,10 @@
                 </div>
                 <!-- Hero text overlay -->
                 <div class="absolute inset-0 flex flex-col justify-end items-start text-white pointer-events-none z-10 px-6 sm:px-14 pb-14 sm:pb-24">
-                    <h1 class="hero-title text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight">
+                    <h1 class="hero-title text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight" data-i18n="hero.title">
                         Capturamos<br>tu Historia
                     </h1>
-                    <p class="hero-subtitle text-xs sm:text-base mt-4 font-medium text-brand-yellow">
+                    <p class="hero-subtitle text-xs sm:text-base mt-4 font-medium text-brand-yellow" data-i18n="hero.subtitle">
                         Fotografía Profesional
                     </p>
                 </div>
@@ -124,7 +138,7 @@
             <section id="photo" class="py-16 sm:py-20 px-4">
                 <div class="max-w-7xl mx-auto">
                     <div class="mb-10 reveal">
-                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Fotografía Profesional</h2>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900" data-i18n="photo.title">Fotografía Profesional</h2>
                         <div class="mt-2 h-1 bg-brand-yellow rounded-full anim-underline"></div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
@@ -132,45 +146,45 @@
                         <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal reveal-delay-1">
                             <img src="img/portfolio/corp.jpg" class="w-full aspect-[4/3] object-cover" alt="Corporativo">
                             <div class="flex flex-col flex-1 p-4 gap-3">
-                                <h5 class="font-semibold text-gray-900">Corporativo</h5>
-                                <p class="text-sm text-gray-600 flex-1">Muestra la esencia de su empresa con servicios de fotografía corporativa. Desde retratos ejecutivos hasta eventos clave, nuestras imágenes reflejan autenticidad y profesionalismo.</p>
-                                <a href="gallery/corp/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200">Ver más</a>
+                                <h5 class="font-semibold text-gray-900" data-i18n="photo.corp.title">Corporativo</h5>
+                                <p class="text-sm text-gray-600 flex-1" data-i18n="photo.corp.desc">Muestra la esencia de su empresa con servicios de fotografía corporativa. Desde retratos ejecutivos hasta eventos clave, nuestras imágenes reflejan autenticidad y profesionalismo.</p>
+                                <a href="gallery/corp/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200" data-i18n="photo.view_more">Ver más</a>
                             </div>
                         </div>
                         <!-- Card: Producto -->
                         <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal reveal-delay-2">
                             <img src="img/portfolio/producto.jpg" class="w-full aspect-[4/3] object-cover" alt="Producto">
                             <div class="flex flex-col flex-1 p-4 gap-3">
-                                <h5 class="font-semibold text-gray-900">Producto</h5>
-                                <p class="text-sm text-gray-600 flex-1">Fotografía de producto personalizada según tus objetivos y necesidades. Ideal para redes sociales, comercio electrónico, catálogos y publicidad.</p>
-                                <a href="gallery/product/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200">Ver más</a>
+                                <h5 class="font-semibold text-gray-900" data-i18n="photo.product.title">Producto</h5>
+                                <p class="text-sm text-gray-600 flex-1" data-i18n="photo.product.desc">Fotografía de producto personalizada según tus objetivos y necesidades. Ideal para redes sociales, comercio electrónico, catálogos y publicidad.</p>
+                                <a href="gallery/product/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200" data-i18n="photo.view_more">Ver más</a>
                             </div>
                         </div>
                         <!-- Card: Retrato -->
                         <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal reveal-delay-3">
                             <img src="img/portfolio/retrato.jpg" class="w-full aspect-[4/3] object-cover" alt="Retrato">
                             <div class="flex flex-col flex-1 p-4 gap-3">
-                                <h5 class="font-semibold text-gray-900">Retrato</h5>
-                                <p class="text-sm text-gray-600 flex-1">Explora tu autenticidad con nuestra fotografía de retrato. Desde retratos individuales hasta sesiones con modelos y familiares, cada imagen cuenta una historia inolvidable.</p>
-                                <a href="gallery/portrait/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200">Ver más</a>
+                                <h5 class="font-semibold text-gray-900" data-i18n="photo.portrait.title">Retrato</h5>
+                                <p class="text-sm text-gray-600 flex-1" data-i18n="photo.portrait.desc">Explora tu autenticidad con nuestra fotografía de retrato. Desde retratos individuales hasta sesiones con modelos y familiares, cada imagen cuenta una historia inolvidable.</p>
+                                <a href="gallery/portrait/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200" data-i18n="photo.view_more">Ver más</a>
                             </div>
                         </div>
                         <!-- Card: Gastronomía -->
                         <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal reveal-delay-4">
                             <img src="img/portfolio/gastro.jpg" class="w-full aspect-[4/3] object-cover" alt="Gastronomía">
                             <div class="flex flex-col flex-1 p-4 gap-3">
-                                <h5 class="font-semibold text-gray-900">Gastronomía</h5>
-                                <p class="text-sm text-gray-600 flex-1">Capturamos el atractivo de su menú con nuestra fotografía gastronómica. Cada imagen es una invitación visual que resalta la exquisitez de sus platos.</p>
-                                <a href="gallery/gastro/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200">Ver más</a>
+                                <h5 class="font-semibold text-gray-900" data-i18n="photo.gastro.title">Gastronomía</h5>
+                                <p class="text-sm text-gray-600 flex-1" data-i18n="photo.gastro.desc">Capturamos el atractivo de su menú con nuestra fotografía gastronómica. Cada imagen es una invitación visual que resalta la exquisitez de sus platos.</p>
+                                <a href="gallery/gastro/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200" data-i18n="photo.view_more">Ver más</a>
                             </div>
                         </div>
                         <!-- Card: Eventos -->
                         <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal reveal-delay-5">
                             <img src="img/portfolio/evento.jpg" class="w-full aspect-[4/3] object-cover" alt="Eventos">
                             <div class="flex flex-col flex-1 p-4 gap-3">
-                                <h5 class="font-semibold text-gray-900">Eventos</h5>
-                                <p class="text-sm text-gray-600 flex-1">Cada evento es una historia por contar. Nuestra fotografía captura la esencia y emoción, creando recuerdos visuales que trascienden el tiempo.</p>
-                                <a href="gallery/event/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200">Ver más</a>
+                                <h5 class="font-semibold text-gray-900" data-i18n="photo.events.title">Eventos</h5>
+                                <p class="text-sm text-gray-600 flex-1" data-i18n="photo.events.desc">Cada evento es una historia por contar. Nuestra fotografía captura la esencia y emoción, creando recuerdos visuales que trascienden el tiempo.</p>
+                                <a href="gallery/event/index.html" class="inline-block mt-auto text-center bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-brand-yellow hover:text-black transition-colors duration-200" data-i18n="photo.view_more">Ver más</a>
                             </div>
                         </div>
                     </div>
@@ -181,7 +195,7 @@
             <section id="video" class="py-16 sm:py-20 px-4 bg-gray-50">
                 <div class="max-w-7xl mx-auto">
                     <div class="mb-10 reveal">
-                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Video</h2>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900" data-i18n="video.title">Video</h2>
                         <div class="mt-2 h-1 bg-brand-yellow rounded-full anim-underline"></div>
                     </div>
                     <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-lg reveal">
@@ -194,14 +208,14 @@
             <section id="bio" class="py-16 sm:py-20 px-4">
                 <div class="max-w-7xl mx-auto">
                     <div class="mb-10 reveal">
-                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Biografía</h2>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900" data-i18n="bio.title">Biografía</h2>
                         <div class="mt-2 h-1 bg-brand-yellow rounded-full anim-underline"></div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-10 items-center">
                         <div class="flex-1 space-y-5 reveal-left">
-                            <p class="text-base sm:text-lg text-gray-700 leading-relaxed">Soy Omar, apasionado creador audiovisual con más de 10 años de experiencia, cuento con una formación académica en Diseño y Comunicación Visual, fusiono mi amor por el arte y la fotografía.</p>
-                            <p class="text-base sm:text-lg text-gray-700 leading-relaxed">Mi mente creativa captura momentos únicos, dando vida a narrativas visuales.</p>
-                            <p class="text-base sm:text-lg text-gray-700 leading-relaxed">Un talento que transforma ideas en imágenes impactantes.</p>
+                            <p class="text-base sm:text-lg text-gray-700 leading-relaxed" data-i18n="bio.text1">Soy Omar, apasionado creador audiovisual con más de 10 años de experiencia, cuento con una formación académica en Diseño y Comunicación Visual, fusiono mi amor por el arte y la fotografía.</p>
+                            <p class="text-base sm:text-lg text-gray-700 leading-relaxed" data-i18n="bio.text2">Mi mente creativa captura momentos únicos, dando vida a narrativas visuales.</p>
+                            <p class="text-base sm:text-lg text-gray-700 leading-relaxed" data-i18n="bio.text3">Un talento que transforma ideas en imágenes impactantes.</p>
                             <img src="img/logo_bio.png" alt="Photoness Studio" class="h-12 mt-4">
                         </div>
                         <div class="flex-1 flex justify-center reveal-right">
@@ -221,7 +235,7 @@
             <section id="contact" class="py-16 sm:py-20 px-4 bg-gray-50">
                 <div class="max-w-7xl mx-auto">
                     <div class="mb-10 reveal">
-                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Contacto</h2>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900" data-i18n="contact.title">Contacto</h2>
                         <div class="mt-2 h-1 bg-brand-yellow rounded-full anim-underline"></div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-10 items-center">
@@ -229,31 +243,31 @@
                             <!-- SB Forms Contact Form -->
                             <form id="contactForm" data-sb-form-api-token="API_TOKEN" class="space-y-4">
                                 <div>
-                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre *</label>
-                                    <input class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition" id="name" type="text" placeholder="Ingrese su nombre..." data-sb-validations="required">
-                                    <div class="invalid-feedback" data-sb-feedback="name:required">El nombre es requerido.</div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="contact.name_label">Nombre *</label>
+                                    <input class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition" id="name" type="text" placeholder="Ingrese su nombre..." data-i18n-placeholder="contact.name_placeholder" data-sb-validations="required">
+                                    <div class="invalid-feedback" data-sb-feedback="name:required" data-i18n="contact.name_required">El nombre es requerido.</div>
                                 </div>
                                 <div>
-                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-                                    <input class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition" id="email" type="email" placeholder="nombre@ejemplo.com" data-sb-validations="required,email">
-                                    <div class="invalid-feedback" data-sb-feedback="email:required">El email es requerido.</div>
-                                    <div class="invalid-feedback" data-sb-feedback="email:email">Email no válido.</div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="contact.email_label">Email *</label>
+                                    <input class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition" id="email" type="email" placeholder="nombre@ejemplo.com" data-i18n-placeholder="contact.email_placeholder" data-sb-validations="required,email">
+                                    <div class="invalid-feedback" data-sb-feedback="email:required" data-i18n="contact.email_required">El email es requerido.</div>
+                                    <div class="invalid-feedback" data-sb-feedback="email:email" data-i18n="contact.email_invalid">Email no válido.</div>
                                 </div>
                                 <div>
-                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Cuéntame tu idea *</label>
-                                    <textarea class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition resize-none" id="message" placeholder="Cuéntame tu idea..." rows="6" data-sb-validations="required"></textarea>
-                                    <div class="invalid-feedback" data-sb-feedback="message:required">El mensaje es requerido.</div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="contact.message_label">Cuéntame tu idea *</label>
+                                    <textarea class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition resize-none" id="message" placeholder="Cuéntame tu idea..." data-i18n-placeholder="contact.message_placeholder" rows="6" data-sb-validations="required"></textarea>
+                                    <div class="invalid-feedback" data-sb-feedback="message:required" data-i18n="contact.message_required">El mensaje es requerido.</div>
                                 </div>
                                 <div class="hidden" id="submitSuccessMessage">
                                     <div class="text-center p-4 bg-green-50 rounded-xl text-green-700 text-sm">
-                                        <p class="font-semibold">¡Mensaje enviado con éxito!</p>
-                                        <p>Para activar este formulario, regístrate en <a href="https://startbootstrap.com/solution/contact-forms" class="underline">SB Forms</a>.</p>
+                                        <p class="font-semibold" data-i18n="contact.success_title">¡Mensaje enviado con éxito!</p>
+                                        <p><span data-i18n="contact.success_text">Para activar este formulario, regístrate en</span> <a href="https://startbootstrap.com/solution/contact-forms" class="underline">SB Forms</a>.</p>
                                     </div>
                                 </div>
                                 <div class="hidden" id="submitErrorMessage">
-                                    <div class="text-center p-4 bg-red-50 rounded-xl text-red-700 text-sm">Error al enviar el mensaje.</div>
+                                    <div class="text-center p-4 bg-red-50 rounded-xl text-red-700 text-sm" data-i18n="contact.error">Error al enviar el mensaje.</div>
                                 </div>
-                                <button class="w-full sm:w-auto bg-black text-white font-medium px-8 py-3 rounded-xl hover:bg-brand-yellow hover:text-black transition-colors duration-200" id="submitButton" type="submit">Enviar</button>
+                                <button class="w-full sm:w-auto bg-black text-white font-medium px-8 py-3 rounded-xl hover:bg-brand-yellow hover:text-black transition-colors duration-200" id="submitButton" type="submit" data-i18n="contact.submit">Enviar</button>
                             </form>
                         </div>
                         <div class="w-full md:w-1/2 flex justify-center reveal-right">
@@ -265,7 +279,7 @@
 
             <!-- Footer -->
             <footer class="bg-black text-white text-center py-8 px-4 reveal">
-                <p class="text-sm text-gray-400">&copy; Photoness.Studio 2024. Todos los derechos reservados.</p>
+                <p class="text-sm text-gray-400" data-i18n="footer.copyright">&copy; Photoness.Studio 2024. Todos los derechos reservados.</p>
             </footer>
         </main>
 
@@ -273,4 +287,6 @@
         <div id="page-overlay"></div>
         <!-- Shared animation script -->
         <script src="/js/animations.js"></script>
+        <!-- Internationalisation -->
+        <script src="/js/i18n.js"></script>
     </body>

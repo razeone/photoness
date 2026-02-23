@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-i18n-title="page.title.gastro">
   <head>
     <title>Photoness.Studio — Gastronomía</title>
     <meta charset="utf-8">
@@ -29,14 +29,20 @@
         </a>
         <a href="/" class="flex items-center gap-2 text-sm font-medium text-brand-yellow hover:text-white transition-colors">
           <svg width="16" height="16" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-          Volver al sitio
+          <span data-i18n="gallery.back">Volver al sitio</span>
         </a>
+        <div class="lang-switcher">
+            <button data-lang="es">ES</button>
+            <button data-lang="en">EN</button>
+            <button data-lang="de">DE</button>
+            <button data-lang="fr">FR</button>
+        </div>
       </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="mb-10 reveal">
-        <h1 class="text-3xl sm:text-4xl font-bold">Gastronomía</h1>
+        <h1 class="text-3xl sm:text-4xl font-bold" data-i18n="gallery.gastro.title">Gastronomía</h1>
         <div class="mt-2 h-1 bg-brand-yellow rounded-full anim-underline"></div>
       </div>
 
@@ -69,11 +75,12 @@
     </main>
 
     <footer class="bg-black border-t border-gray-800 text-center py-6 mt-12">
-      <p class="text-sm text-gray-500">&copy; Photoness.Studio 2024. Todos los derechos reservados.</p>
+      <p class="text-sm text-gray-500" data-i18n="footer.copyright">&copy; Photoness.Studio 2024. Todos los derechos reservados.</p>
     </footer>
 
     <div id="page-overlay"></div>
     <script src="../../js/animations.js"></script>
+    <script src="../../js/i18n.js"></script>
 
   </body>
 </html>
