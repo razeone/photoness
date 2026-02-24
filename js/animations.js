@@ -84,7 +84,30 @@
   }
 
   /* =========================================================
-     4. KEN BURNS RESET on carousel slide change
+     4. HAMBURGER MENU TOGGLE
+     Shows/hides the mobile menu when the hamburger button is clicked.
+     Also closes the menu when any menu link is clicked.
+     ========================================================= */
+  var hamburgerBtn = document.getElementById('hamburger-btn');
+  var mobileMenuEl = document.getElementById('mobileMenu');
+
+  if (hamburgerBtn && mobileMenuEl) {
+    hamburgerBtn.addEventListener('click', function () {
+      var isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+      hamburgerBtn.setAttribute('aria-expanded', String(!isExpanded));
+      mobileMenuEl.classList.toggle('hidden');
+    });
+
+    mobileMenuEl.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuEl.classList.add('hidden');
+      });
+    });
+  }
+
+  /* =========================================================
+     5. KEN BURNS RESET on carousel slide change
      Restarts the zoom animation on the newly visible slide.
      ========================================================= */
   var carousel = document.getElementById('carouselExampleCaptions');
