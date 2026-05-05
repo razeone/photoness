@@ -1,126 +1,183 @@
 /**
- * Photoness.Studio — animations.js
- * Shared animation helpers:
- *   1. Page-transition overlay (fade-to-black before navigation)
- *   2. Scroll-reveal with IntersectionObserver (.reveal, .reveal-left, .reveal-right, .anim-underline)
- *   3. Scrollspy — highlights the active section in the navbar
- *   4. Ken Burns reset — restarts the zoom animation on each new carousel slide
+ * PHOTONESS.STUDIO — v4
+ * Editorial brutalism interaction layer.
+ *
+ *   1. Photographic focus-frame cursor (replaces generic cursor)
+ *   2. Stamp-in scroll reveal (IntersectionObserver)
+ *   3. Glitch activation on section titles when in view
+ *   4. EN / FR language toggle (data-en / data-fr attributes)
+ *   5. Mobile menu toggle
+ *   6. Scrollspy — active nav link
  */
 (function () {
   'use strict';
 
   /* =========================================================
-     1. PAGE TRANSITION OVERLAY
-     Fades the screen to black when navigating to another page.
-     The body CSS animation (fadeIn) handles the fade-in on load.
+     1. FOCUS-FRAME CURSOR
      ========================================================= */
-  var overlay = document.getElementById('page-overlay');
+  var prefersReduced = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarsePointer = window.matchMedia &&
+    window.matchMedia('(hover: none), (pointer: coarse)').matches;
 
-  if (overlay) {
-    document.addEventListener('click', function (e) {
-      var link = e.target.closest('a[href]');
-      if (!link) return;
-      var href = link.getAttribute('href');
-      if (
-        !href ||
-        href.charAt(0) === '#' ||
-        href.indexOf('http') === 0 ||
-        href.indexOf('mailto') === 0 ||
-        href.indexOf('tel') === 0 ||
-        link.target === '_blank'
-      ) return;
+  if (!prefersReduced && !coarsePointer) {
+    var cursor = document.createElement('div');
+    cursor.className = 'focus-cursor';
+    cursor.innerHTML = '<i class="tl"></i><i class="tr"></i>';
+    document.body.appendChild(cursor);
 
-      e.preventDefault();
-      overlay.classList.add('is-active');
-      setTimeout(function () { window.location.href = href; }, 380);
-    });
-  }
+    var cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+    var tx = cx, ty = cy;
+    var ready = false;
 
-  /* =========================================================
-     2. SCROLL-REVEAL
-     Adds `.visible` to elements that enter the viewport.
-     Supports: .reveal  .reveal-left  .reveal-right  .anim-underline
-     ========================================================= */
-  var revealEls = document.querySelectorAll(
-    '.reveal, .reveal-left, .reveal-right, .anim-underline'
-  );
-
-  if (revealEls.length && 'IntersectionObserver' in window) {
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-    revealEls.forEach(function (el) { revealObserver.observe(el); });
-  } else {
-    /* Fallback for older browsers */
-    revealEls.forEach(function (el) { el.classList.add('visible'); });
-  }
-
-  /* =========================================================
-     3. SCROLLSPY — active nav link
-     Watches each section and highlights the matching nav link.
-     ========================================================= */
-  var sections  = document.querySelectorAll('main section[id]');
-  var navLinks  = document.querySelectorAll('header nav a[href^="#"]');
-
-  if (sections.length && navLinks.length && 'IntersectionObserver' in window) {
-    var spyObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach(function (l) { l.classList.remove('nav-active'); });
-        var activeLink = document.querySelector(
-          'header nav a[href="#' + entry.target.id + '"]'
-        );
-        if (activeLink) activeLink.classList.add('nav-active');
-      });
-    }, { threshold: 0.35 });
-
-    sections.forEach(function (s) { spyObserver.observe(s); });
-  }
-
-  /* =========================================================
-     4. HAMBURGER MENU TOGGLE
-     Shows/hides the mobile menu when the hamburger button is clicked.
-     Also closes the menu when any menu link is clicked.
-     ========================================================= */
-  var hamburgerBtn = document.getElementById('hamburger-btn');
-  var mobileMenuEl = document.getElementById('mobileMenu');
-
-  if (hamburgerBtn && mobileMenuEl) {
-    hamburgerBtn.addEventListener('click', function () {
-      var isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
-      hamburgerBtn.setAttribute('aria-expanded', String(!isExpanded));
-      mobileMenuEl.classList.toggle('hidden');
+    document.addEventListener('mousemove', function (e) {
+      tx = e.clientX; ty = e.clientY;
+      if (!ready) { ready = true; cursor.classList.add('is-ready'); }
     });
 
-    mobileMenuEl.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
-        mobileMenuEl.classList.add('hidden');
-      });
-    });
-  }
+    function tick() {
+      var dx = tx - cx, dy = ty - cy;
+      // Skip work when the cursor is effectively at rest (sub-pixel delta)
+      if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+        cx += dx * 0.22;
+        cy += dy * 0.22;
+        cursor.style.transform = 'translate(' + cx + 'px,' + cy + 'px) translate(-50%,-50%)';
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
 
-  /* =========================================================
-     5. KEN BURNS RESET on carousel slide change
-     Restarts the zoom animation on the newly visible slide.
-     ========================================================= */
-  var carousel = document.getElementById('carouselExampleCaptions');
-  if (carousel) {
-    carousel.addEventListener('slid.bs.carousel', function (e) {
-      var newImg = e.relatedTarget && e.relatedTarget.querySelector('.hero-slide');
-      if (newImg) {
-        newImg.style.animation = 'none';
-        /* Trigger reflow to restart the CSS animation */
-        void newImg.offsetWidth;
-        newImg.style.animation = '';
+    var hotSelector = 'a, button, .photo-cell, [data-cursor="hot"]';
+    document.addEventListener('mouseover', function (e) {
+      if (e.target.closest && e.target.closest(hotSelector)) {
+        cursor.classList.add('is-hot');
       }
     });
+    document.addEventListener('mouseout', function (e) {
+      if (e.target.closest && e.target.closest(hotSelector)) {
+        cursor.classList.remove('is-hot');
+      }
+    });
+    document.addEventListener('mouseleave', function () {
+      cursor.classList.remove('is-ready');
+    });
+    document.addEventListener('mouseenter', function () {
+      cursor.classList.add('is-ready');
+    });
   }
 
+  /* =========================================================
+     2. STAMP-IN reveal + 3. Glitch activation
+     ========================================================= */
+  var reveals = document.querySelectorAll('.reveal');
+  var glitches = document.querySelectorAll('.glitch');
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-stamped');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(function (el) { io.observe(el); });
+    glitches.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('is-stamped'); });
+    glitches.forEach(function (el) { el.classList.add('is-stamped'); });
+  }
+
+  /* =========================================================
+     4. LANGUAGE TOGGLE — EN / FR
+     Reads data-en / data-fr attributes on any element and
+     swaps its text content. Persists choice in localStorage.
+     ========================================================= */
+  var STORAGE_KEY = 'photoness:lang';
+  var supported = ['en', 'fr'];
+
+  function detectInitialLang() {
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && supported.indexOf(saved) !== -1) return saved;
+    } catch (_) { /* storage may be disabled */ }
+    var nav = (navigator.language || 'en').slice(0, 2).toLowerCase();
+    return supported.indexOf(nav) !== -1 ? nav : 'en';
+  }
+
+  function applyLanguage(lang) {
+    if (supported.indexOf(lang) === -1) lang = 'en';
+    document.documentElement.setAttribute('lang', lang);
+
+    var nodes = document.querySelectorAll('[data-en], [data-fr]');
+    nodes.forEach(function (n) {
+      var val = n.getAttribute('data-' + lang);
+      if (val == null) return;
+      // Honor placeholder vs text content
+      if (n.tagName === 'INPUT' || n.tagName === 'TEXTAREA') {
+        if (n.hasAttribute('placeholder')) n.setAttribute('placeholder', val);
+      } else {
+        // innerHTML is required because translations intentionally contain
+        // markup (e.g. <em>, <span class="arrow">) authored by the studio in
+        // the static HTML. Values are NOT user input — they originate from
+        // data-en / data-fr attributes shipped with the page.
+        n.innerHTML = val;
+      }
+      // Refresh glitch data-text so the pseudo-elements update
+      if (n.classList && n.classList.contains('glitch')) {
+        n.setAttribute('data-text', n.textContent);
+      }
+    });
+
+    // Toggle button states
+    document.querySelectorAll('.lang-toggle button').forEach(function (b) {
+      b.classList.toggle('is-on', b.getAttribute('data-lang') === lang);
+    });
+
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (_) {}
+  }
+
+  document.querySelectorAll('.lang-toggle button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      applyLanguage(b.getAttribute('data-lang'));
+    });
+  });
+
+  applyLanguage(detectInitialLang());
+
+  /* =========================================================
+     5. MOBILE MENU
+     ========================================================= */
+  var hamburger = document.querySelector('.hamburger');
+  var navList = document.querySelector('.nav-list');
+  if (hamburger && navList) {
+    hamburger.addEventListener('click', function () {
+      var open = navList.classList.toggle('is-open');
+      hamburger.setAttribute('aria-expanded', String(open));
+    });
+    navList.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        navList.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  /* =========================================================
+     6. SCROLLSPY
+     ========================================================= */
+  var sections = document.querySelectorAll('main section[id], main .ai-block[id]');
+  var navLinks = document.querySelectorAll('.nav-list a[href^="#"]');
+  if (sections.length && navLinks.length && 'IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(function (l) { l.classList.remove('is-active'); });
+        var active = document.querySelector('.nav-list a[href="#' + entry.target.id + '"]');
+        if (active) active.classList.add('is-active');
+      });
+    }, { threshold: 0.35 });
+    sections.forEach(function (s) { spy.observe(s); });
+  }
 })();
